@@ -1,4 +1,7 @@
 #include <xc.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <p18f4550.h>
 
 // Function Prototypes
 
