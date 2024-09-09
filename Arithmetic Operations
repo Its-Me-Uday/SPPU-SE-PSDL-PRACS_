@@ -1,0 +1,57 @@
+#include <xc.h>
+
+void initialize();
+void arithmetic_operations();
+
+// Main Function
+
+void main(void) {
+    initialize();                 // Initialize the system (ports, oscillator, etc.)
+    arithmetic_operations();      // Perform arithmetic operations
+
+    while(1);  // Infinite loop
+}
+
+// Initialize function (setting up I/O, etc.)
+
+
+void initialize() 
+{
+     TRISB = 0x00;               // Setup the oscillator, I/O ports, and other configurations as needed
+                                 // Set PORTB as output (for example, to display results on LEDs)
+}
+
+// Perform arithmetic operations
+
+void arithmetic_operations()
+{
+    int num1 = 10;              // First number
+    int num2 = 5;               // Second number
+    int addition, subtraction, multiplication;
+    float division;
+
+    // Addition
+    addition = num1 + num2;
+
+    // Subtraction
+    subtraction = num1 - num2;
+
+    // Multiplication
+    multiplication = num1 * num2;
+
+    // Division (to avoid division by zero)
+    if(num2 != 0) {
+        division = (float)num1 / num2;
+    }
+
+    // For testing: Write the results to PORTB (in 8-bit, simple representation)
+   
+    PORTB = addition;         // For example, display addition result on LEDs connected to PORTB
+
+    // If you have serial communication or LCD, you can display the result:
+
+    printf("Addition: %d\n", addition);
+    printf("Subtraction: %d\n", subtraction);
+    printf("Multiplication: %d\n", multiplication);
+    printf("Division: %.2f\n", division);
+}
