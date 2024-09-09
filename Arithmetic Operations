@@ -1,4 +1,8 @@
 #include <xc.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <p18f4550.h>
+#include <stdint.h>
 
 void initialize();
 void arithmetic_operations();
